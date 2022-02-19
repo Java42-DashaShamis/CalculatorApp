@@ -13,7 +13,11 @@ public class CalculatorProxy implements Calculator{
 		this.reader = reader;
 	}
 	public double compute(String operator, double op1, double op2) {
-		
+		/* V.R.
+		 *  writer.println() has to be placed inside try-catch brackets.
+		 *  The catch() will get 2 types of exceptions - IOException and NumberFormatException
+		 *  (Double.parseDouble)
+		 */
 		writer.println(String.format("%s#%s#%s", operator, Double.toString(op1),Double.toString(op2)));
 		try {
 			double responce = Double.parseDouble(reader.readLine());

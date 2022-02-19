@@ -45,6 +45,12 @@ public class CalculatorServerApp {
 		if(tokens.length != 3) {
 			res = "Wrong request";
 		}else {
+			/* V.R. The amount of tokens is checked, it is OK.
+			 * What about each token itself?
+			 * It is necessary to check token[0] ('+','-','*',/'). It is the first.
+			 * It is also necessary tokens[1] and tokens[2] by catching 
+			 * NumberFormatException exception
+			 */
 			Calculator calculator = new CalculatorImpl();
 			res = Double.toString(calculator.compute(tokens[0], Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2])));
 		}
